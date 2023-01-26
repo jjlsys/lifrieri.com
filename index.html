@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Crypto Price</title>
+  </head>
+  <body>
+    <h1>Gala Price</h1>
+    <p id="price"></p>
+    <style>
+      /* CSS styles go here */
+      body {
+        background-color: rgb(118, 118, 150);
+      }
+  
+      h1 {
+        color: white;
+        text-align: center;
+      }
+  
+      #myBtn {
+        cursor: pointer;
+        background-color: green;
+        color: white;
+        padding: 15px 32px;
+      }
+    </style>
+
+    <script>
+      //Fetch the current price of Bitcoin from CoinGecko API
+      fetch("https://api.coingecko.com/api/v3/simple/price?ids=gala&vs_currencies=usd")
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById("price").innerHTML = "$" + data.gala.usd;
+        });
+    </script>
+    
+  </body>
+</html>
